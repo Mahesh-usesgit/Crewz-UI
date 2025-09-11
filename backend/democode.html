@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IRCTC </title>
+  <style>
+    body { font-family: Arial; margin:0; }
+    header, footer { background:#79b1c7; color:rgb(9, 218, 37); padding:20px; text-align:center; }
+    nav { background:#0059b3; padding:16px; }
+    nav a { color:white; margin:0 20px; text-decoration:none; }
+    form { margin:40px auto; width:600px; padding:30px; border:2px solid #ccc; border-radius:16px; }
+    label { display:block; margin-top:20px; }
+    input, select { width:100%; padding:12px; margin-top:8px; }
+    button { margin-top:24px; width:100%; padding:16px; background:#0059b3; color:white; border:none; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>IRCTC Website (Demo)</h1>
+  </header>
+
+  <nav>
+    <a href="#">Home</a> |
+    <a href="#">Book Ticket</a> |
+    <a href="#">PNR Status</a> |
+    <a href="#">Contact</a>
+  </nav>
+
+  <main>
+    <h2 style="text-align:center;">Book Your Ticket</h2>
+    <form>
+      <label>From Station:</label>
+      <input type="text" placeholder="Mumbai" required>
+      
+      <label>To Station:</label>
+      <input type="text" placeholder="Chennai" required>
+      
+      <label>Journey Date:</label>
+      <input type="date" required>
+      
+      <label>Class:</label>
+      <select>
+        <option>Sleeper</option>
+        <option>general</option>
+        <option>disability</option>
+        <option>AC First Class</option>
+      </select>
+      
+      <button type="submit">Find Trains</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 IRCTC Demo Website</p>
+  </footer>
+
+</body>
+</html>

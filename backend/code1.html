@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>HTML Tags Showcase</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+        }
+        header, footer, nav, main, section, article, aside {
+            margin-bottom: 40px;
+        }
+        nav ul {
+            list-style-type: square;
+            padding-left: 40px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 8px;
+            text-align: left;
+        }
+        figure img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+    <script>
+        function showAlert() {
+            alert('Hello from script!');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Example: HTML Tags</h1>
+        <nav>
+            <ul>
+                <li><a href="#sec-one">Go to Section One</a></li>
+                <li><a href="#sec-two">Go to Section Two</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="sec-one" aria-labelledby="sec-one-title">
+            <h2 id="sec-one-title">Section One</h2>
+
+            <article>
+                <h3>Demonstrating Various HTML Elements</h3>
+
+                <p>
+                    This paragraph contains <strong>strong</strong> text, <em>emphasized</em> text, and a <mark>highlighted</mark> phrase.
+                </p>
+
+                <blockquote cite="https://example.com">
+                    <p>"This is a sample blockquote with citation."</p>
+                </blockquote>
+
+                <pre><code>
+function greet() {
+    console.log("Hello, world!");
+}
+                </code></pre>
+
+                <p>Inline code example: <code>console.log('Hi');</code></p>
+
+                <hr />
+
+                <h4>Lists</h4>
+                <ul>
+                    <li>Unordered item 1</li>
+                    <li>Unordered item 2</li>
+                </ul>
+
+                <ol>
+                    <li>Ordered item 1</li>
+                    <li>Ordered item 2</li>
+                </ol>
+
+                <dl>
+                    <dt>HTML</dt>
+                    <dd>HyperText Markup Language</dd>
+                    <dt>CSS</dt>
+                    <dd>Cascading Style Sheets</dd>
+                </dl>
+
+                <figure>
+                    <img src="https://via.placeholder.com/150" alt="Placeholder Image" />
+                    <figcaption>Figure: Placeholder Image</figcaption>
+                </figure>
+
+                <h4>Sample Table</h4>
+                <table>
+                    <caption>Example Table</caption>
+                    <thead>
+                        <tr>
+                            <th>Column A</th>
+                            <th>Column B</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Row 1, Cell A</td>
+                            <td>Row 1, Cell B</td>
+                        </tr>
+                        <tr>
+                            <td>Row 2, Cell A</td>
+                            <td>Row 2, Cell B</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">Table Footer</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <h4>Form Elements</h4>
+                <form>
+                    <fieldset>
+                        <legend>User Info</legend>
+
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" placeholder="Enter your name" />
+
+                        <label>
+                            <input type="checkbox" name="newsletter" />
+                            Subscribe to newsletter
+                        </label>
+
+                        <p>Gender:</p>
+                        <label for="gender-m">Male</label>
+                        <input type="radio" id="gender-m" name="gender" value="male" />
+                        <label for="gender-f">Female</label>
+                        <input type="radio" id="gender-f" name="gender" value="female" />
+
+                        <label for="country">Country:</label>
+                        <select id="country" name="country">
+                            <option value="">-- Select --</option>
+                            <option value="usa">USA</option>
+                            <option value="uk">UK</option>
+                        </select>
+
+                        <label for="comments">Comments:</label>
+                        <textarea id="comments" name="comments" rows="3" placeholder="Your comments here"></textarea>
+
+                        <div style="margin-top: 10px;">
+                            <button type="button" onclick="showAlert()">Show Alert</button>
+                            <input type="submit" value="Send" />
+                        </div>
+                    </fieldset>
+                </form>
+
+                <details>
+                    <summary>Click to reveal more info</summary>
+                    <p>Hidden content appears here when expanded.</p>
+                </details>
+
+                <progress value="70" max="100" style="width: 100%;"></progress>
+                <meter value="0.4" min="0" max="1">40%</meter>
+
+                <p>
+                    Date example: <time datetime="2024-06-01">June 1, 2024</time><br />
+                    Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr>
+                </p>
+
+                <address>
+                    Contact us at:<br />
+                    123 Example St,<br />
+                    Sample City, Country
+                </address>
+
+                <p>
+                    <bdo dir="rtl">This text flows right to left.</bdo>
+                </p>
+
+                <p>
+                    <sup>Superscript example</sup><br />
+                    <sub>Subscript example</sub><br />
+                    <small>Small print text</small><br />
+                    <s>Strikethrough text</s><br />
+                    <u>Underlined text</u><br />
+                    <i>Italic text</i><br />
+                    <b>Bold text</b><br />
+                    <span>Generic inline span</span>
+                </p>
+            </article>
+        </section>
+
+        <section id="sec-two" aria-labelledby="sec-two-title">
+            <h2 id="sec-two-title">Section Two</h2>
+            <aside>
+                <p>This is an aside, often used for tangential content.</p>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company Name</p>
+    </footer>
+</body>
+</html>

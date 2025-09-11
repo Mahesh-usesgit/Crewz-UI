@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Biodata</title>
+</head>
+<body>
+    <h2>My Biodata</h2>
+
+    <img src="myphoto.jpg" alt="My Photo" width="150">
+
+    <h3>Name: <strong>praveen kuamr</strong></h3>
+    <h3>Education: <strong>Bachelor of technology</strong></h3>
+    <h3>Status: <strong>Single</strong></h3>
+
+    <h3>Skills</h3>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <h3>Hobbies</h3>
+    <ol>
+        <li>Reading</li>
+        <li>Traveling</li>
+        <li>Photography</li>
+    </ol>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Biodata Form</title>
+</head>
+<body>
+    <h2>Biodata Form</h2>
+
+    <form>
+        <!-- Name -->
+        <label for="name"><strong>Name:</strong></label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <!-- Roll No -->
+        <label for="roll"><strong>Roll No:</strong></label><br>
+        <input type="text" id="roll" name="roll" required><br><br>
+
+        <!-- Image Upload -->
+        <label for="image"><strong>Upload Image:</strong></label><br>
+        <input type="file" id="image" name="image" accept="image/*"><br><br>
+
+        <!-- Subjects List -->
+        <strong>Subjects:</strong>
+        <ul>
+            <li>optimization techniques</li>
+            <li>probability and statistics</li>
+            <li>oopj</li>
+            <li>machine learning</li>
+            <li>dt&i</li>
+            <li>uhv</li>
+        </ul>
+
+        <!-- Marks Table -->
+        <strong>Enter Marks:</strong>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <tr>
+                <th>Subject</th>
+                <th>Marks</th>
+            </tr>
+            <tr>
+                <td>optimization techniques</td>
+                <td><input type="number" name="marks_math" min="0" max="100" required></td>
+            </tr>
+            <tr>
+                <td>probability and statistics</td>
+                <td><input type="number" name="marks_science" min="0" max="100" required></td>
+            </tr>
+            <tr>
+                <td>oopj</td>
+                <td><input type="number" name="marks_english" min="0" max="100" required></td>
+            </tr>
+            <tr>
+                <td>machine learning</td>
+                <td><input type="number" name="marks_history" min="0" max="100" required></td>
+                </tr>
+                <tr>
+                <td>dt&i</td>
+                <td><input type="number" name="marks_history" min="0" max="100" required></td>
+            </tr>
+            <tr>
+            <td>uhv</td>
+                <td><input type="number" name="marks_history" min="0" max="100" required></td>
+        </table><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
