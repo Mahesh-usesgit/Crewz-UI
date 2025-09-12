@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <h2>calculator clone</h2>
+</head>
+<body><input for="addition" placeholder="enter the number">
+<input for="subtraction" placeholder="enter the number">
+<input for="multiplication" placeholder="enter the number">
+<body>
+  <h2>Calculator (Addition, Subtraction, Multiplication, Division)</h2>
+  <input type="number" id="num1" placeholder="Enter first number">
+  <input type="number" id="num2" placeholder="Enter second number">
+  <br><br>
+  <button onclick="showResult(add)">Add</button>
+  <button onclick="showResult(subtract)">Subtract</button>
+  <button onclick="showResult(multiply)">Multiply</button>
+  <button onclick="showResult(divide)">Divide</button>
+  <p id="result">Result: </p>
+
+  <script>
+    function add(a, b) {
+      return a + b;
+    }
+
+    function subtract(a, b) {
+      return a - b;
+    }
+
+    function multiply(a, b) {
+      return a * b;
+    }
+
+    function divide(a, b) {
+      if (b === 0) {
+        return "❌ Cannot divide by zero!";
+      }
+      return a / b;
+    }
+
+    function showResult(operation) {
+      let n1 = parseFloat(document.getElementById("num1").value);
+      let n2 = parseFloat(document.getElementById("num2").value);
+
+      if (isNaN(n1) || isNaN(n2)) {
+        document.getElementById("result").innerText = "⚠️ Enter both numbers.";
+        return;
+      }
+
+      let res = operation(n1, n2);
+      document.getElementById("result")}
+      </script>
+      </body>
+</html>
