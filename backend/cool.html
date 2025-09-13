@@ -1,0 +1,147 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>To do List</title>
+  <style>
+  /* Basic body and font styling */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50px;
+    }
+
+    /* Main container for the to-do list */
+    H1, h2 {
+        color: #4CAF50;
+    }
+
+    /* List styling */
+    ul#taskList {
+        list-style-type: none;
+        padding: 0;
+        width: 80%;
+        max-width: 600px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    ul#taskList li {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: background-color 0.3s ease;
+    }
+
+    ul#taskList li:last-child {
+        border-bottom: none;
+    }
+
+    /* Input and button styling */
+    #taskInput {
+        width: 60%;
+        max-width: 400px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1em;
+        margin-top: 20px;
+    }
+
+    #addTask, #done, .delete {
+        border: none;
+        padding: 8px 12px;
+        margin-left: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.1s ease;
+    }
+
+    #addTask {
+        background-color: #2196F3;
+        color: white;
+    }
+
+    #addTask:hover {
+        background-color: #0b7dda;
+    }
+
+    /* Styles for the "Complete" and "Delete" buttons inside the list items */
+    #done {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .delete {
+        background-color: #f44336;
+        color: white;
+    }
+
+    #done:hover {
+        background-color: #45a049;
+    }
+
+    .delete:hover {
+        background-color: #da190b;
+    }
+
+    /* Highlight style for completed tasks */
+    ul#taskList li[style*="background-color: yellow"] {
+        color: #333; /* Ensures text is readable on yellow background */
+    }
+
+    /* Flexbox container for the buttons within each list item */
+    li button {
+        flex-shrink: 0; /* Prevents buttons from shrinking */
+    }</style>
+</head>
+<body>
+    <H1> To Do List </H1>
+    <br><br>
+    <h2>These are your tasks to complete</h2>
+    <ul id="taskList">
+      <li>Sample Task 1 <button id='done'>Complete</button> <button class='delete'>Delete</button></li>
+      <li>Sample Task 2 <button id='done'>Complete</button> <button class='delete'>Delete</button></li>
+    </ul>
+    <input type="text" id="taskInput" placeholder="Enter new task">
+    <button id="addTask">Add Task</button>
+</body>
+<script>
+$(document).ready(function(){
+   
+    $("#addTask").click(function(){
+  let task = $("#taskInput").val();
+  if(task !== ""){
+    $("#taskList").append(
+      `<li>${task}
+        <button id='done'>Complete</button>
+        <button class='delete'>Delete</button>
+      </li>`
+    );
+    $("#taskInput").val("");
+  }
+});
+
+// Mark as complete
+$("#taskList").on("click", "#done", function(){
+  $(this).parent().css("background-color","yellow");
+});
+
+// Delete
+$("#taskList").on("click", ".delete", function(){
+  $(this).parent().remove();
+});
+
+});
+</script>
+</html>
