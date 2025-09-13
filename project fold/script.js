@@ -123,3 +123,5 @@ document.getElementById("fetchBtn").addEventListener("click", () => {
       document.getElementById("weather").innerHTML = "⚠️ Error fetching weather.";
     });
 });
+
+

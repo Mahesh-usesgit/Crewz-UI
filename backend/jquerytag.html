@@ -1,0 +1,112 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Corrected jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        /* Add some basic CSS for better visual feedback */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .highlight {
+            border: 2px solid blue;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Hello jQuery</h2>
+    <h3>just for timepass</h3>
+    <button id="btn">Tap Me</button>
+
+    <div class="temp">
+        <p>This is a different division<br>on which we are using the class tags using jQuery.</p>
+    </div>
+
+    <input type="text" id="myInput" placeholder="Type here...">
+    <p id="output">Hi this text</p>
+
+    <ul id="list">
+        <li>Item 1</li>
+    </ul>
+
+    <button id="add">Add Item to End</button>
+    <button id="addf">Add Item to Start</button>
+    <button id="remove">Remove First</button>
+    <button id="removef">Remove last</button>
+
+    <script>
+        $(document).ready(function() {
+
+            // --- Event Handlers for the main button (#btn) ---
+
+            // Single click event
+            $("#btn").click(function() {
+                $("h2").text("Button Clicked!");
+                $("h3").text("Button Clicked! Duplicate");
+                $(".temp").css("background-color", "yellow");
+                // Be more specific with the paragraph inside .temp
+                $(".temp p").css("font-weight", "bold");
+            });
+
+            // Double click event
+            $("#btn").keydown(function() {
+                $("h2").text("Button Clicked Twice!");
+                $("h3").text("Button Clicked Twice! Duplicate");
+                $(".temp").css("background-color", "orange");
+                $(".temp p").css("font-weight", "normal"); // 'calibri' is a font family, not a weight. Use 'normal' or a number.
+            });
+
+            // Hover event (mouse enter and mouse leave)
+            $("#btn").hover(
+                // Function to run on mouseenter
+                function() {
+                    $("h2").text("Button Hovered!");
+                    $("h3").text("Button Hovered! Duplicate");
+                    $(".temp").css("background-color", "cyan");
+                    // Use a more appropriate property, like 'font-style' for 'italic'
+                    $(".temp p").css("font-style", "italic");
+                },
+                // Function to run on mouseleave
+                function() {
+                    $("h2").text("Hello jQuery"); // Restore original text
+                    $("h3").text("just for timepass"); // Restore original text
+                    $(".temp").css("background-color", ""); // Clear the background color
+                    $(".temp p").css("font-style", "normal"); // Restore font style
+                }
+            );
+
+            // --- List Manipulation ---
+
+            // Append a new list item to the end
+            $("#add").click(function() {
+                $("#list").append("<li>New Item appended from script</li>");
+            });
+
+            // Prepend a new list item to the start
+            $("#addf").click(function() {
+                $("#list").prepend("<li>New Item prepended from script</li>");
+            });
+
+            // Remove the first list item
+            $("#remove").click(function() {
+                $("#list li:first-child").remove(); // :first-child is a more robust selector than :first
+            });
+            //remove list at last
+            $("#removef").click(function() {
+                $("#list li:first-child").remove(); // :first-child is a more robust selector than :first
+            });
+
+            // --- Input and Output ---
+
+            // Update output paragraph as user types in the input field
+            $("#myInput").on("keyup", function() { // Use 'keyup' for better real-time feedback
+                let val = $(this).val(); // 'this' refers to the element that triggered the event
+                $("#output").text(val);
+            });
+        });
+    </script>
+</body>
+</html>
