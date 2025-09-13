@@ -3,13 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>weather info</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>DOM Operations Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      text-align: center;
+      margin: 20px;
+    }
+    h2 {
+      color: darkblue;
+    }
+    .temp {
+      border: 2px solid black;
+      margin: 10px auto;
+      padding: 15px;
+      width: 50%;
+      background-color: lightgray;
+      border-radius: 10px;
+    }
+    #list {
+      margin-top: 15px;
+      list-style: square;
+      text-align: left;
+      width: 250px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 10px;
+      border: 1px solid gray;
+      border-radius: 5px;
+      background-color: white;
+    }
+    button {
+      margin: 5px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #213041;
+    }
+    input {
+      margin: 8px;
+      padding: 6px;
+      border-radius: 5px;
+      border: 1px solid gray;
+    }
+  </style>
 </head>
 <body>
-    <h1 title="text">check the info</h1>
-    <button >click it</button>
+  <h2>this an jquery</h2>
+  <button id="btn">Tap Me</button>
+ 
+  <div class="temp">
+    <p>This is a different division,
+        <br> on which we are using the class tags using jQuery</p>
+  </div>
 
-    <script src="code.js"></script>
+  <!-- Live typing -->
+  <input type="text" id="myInput" placeholder="Enter here...">
+  <p id="output">Hi this text</p>
+
+  <!-- Task input -->
+  <input type="text" id="taskInput" placeholder="Enter a task">
+  <button id="addTask">Add Task</button>
+
+  <ul id="list">
+    <li>new pot 1</li>
+    <li>new pot 2</li>
+  </ul>
+
+  <!-- Control buttons -->
+  <button id="add">Add Item</button>
+  <button id="addf">Add Item First</button>
+  <button id="remove">Remove First</button>
+  
+
+  <script>
+    $(document).ready(function(){
+
+      // Button click
+      $("#btn").click(function(){
+        $("h2").text("Button Clicked!");
+
+        $(".temp").css("background-color", "yellow");
+        $("p").css("font-weight", "bold");
+      });
+
+      // Double click
+      $("#btn").dblclick(function(){
+        $("h2").text("Button Clicked Twice!");
+     
+        $(".temp").css("background-color", "orange");
+        $("p").css("font-style", "italic");
+      });
+
+      // Hover
+      $("#btn").hover(function(){
+        $("h2").text("Button Hovered!");
+    
+        $(".temp").css("background-color", "cyan");
+      });
+
+      // Add list item
+      $("#add").click(function(){
+        $("#list").append("<li>New Item appended from script</li>");
+      });
+
+      // Prepend list item
+      $("#addf").click(function(){
+        $("#list").prepend("<li>New Item prepended from script</li>");
+      });
+
+      // Remove first item
+      $("#remove").click(function(){
+        $("#list li:first").remove();
+      });
+
+      // Live input typing
+      $("#myInput").on("input", function(){
+        let val = $(this).val();
+        $("#output").text(val);
+      });
+
+      // Add task from input
+      $("#addTask").click(function(){
+        let task = $("#taskInput").val().trim();
+        if(task){
+          $("#list").append("<li>" + task + "</li>");
+          $("#taskInput").val(''); // clear input
+        }
+      });
+
+
+      
+           {
+          $(".temp").removeAttr("style");
+          $("p").removeAttr("style");
+          cssAdded = false;
+          $(this).text("Toggle CSS");
+        }
+      });
+  </script>
 </body>
 </html>

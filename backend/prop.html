@@ -1,0 +1,184 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+    margin: 0;
+}
+
+.main-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.task-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.task-column h2 {
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.task-input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.task-list {
+    width: 90%;
+    min-height: 50px;
+    padding: 5px;
+}
+
+.task-item {
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    transition: background-color 0.4s ease-in-out;
+}
+
+/* This is the class that will be added by JavaScript */
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+    color: #333;
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#complete-button {
+    background-color: #28a745;
+}
+
+#complete-button:hover {
+    background-color: #218838;
+}
+
+#remove-button {
+    background-color: #dc3545;
+}
+
+#remove-button:hover {
+    background-color: #c82333;
+}
+    </style>
+</head>
+<body>
+<h3>tasks</h3>
+    <div class="main-container">
+        <div class="task-row">
+            <h2>Task 1</h2>
+            <input type="text" class="task-input" placeholder="Enter task...">
+            <div class="task-list"></div>
+        </div>
+        
+        <div class="task-column">
+            <h2>Task 2</h2>
+            <input type="text" class="task-input" placeholder="Enter task...">
+            <div class="task-list"></div>
+        </div>
+
+        <div class="task-column">
+            <h2>Task 3</h2>
+            <input type="text" class="task-input" placeholder="Enter task...">
+            <div class="task-list"></div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button id="complete-button">Complete</button>
+        <button id="remove-button">Remove</button>
+    </div>
+
+    <script >
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all necessary elements
+    const completeButton = document.getElementById('complete-button');
+    const removeButton = document.getElementById('remove-button');
+    const taskInputs = document.querySelectorAll('.task-input');
+    const taskLists = document.querySelectorAll('.task-list');
+
+    // Action for the "Complete" button
+    completeButton.addEventListener('click', () => {
+        taskInputs.forEach((input, index) => {
+            const taskText = input.value.trim();
+
+            if (taskText !== '') {
+                // Create a new div element for the task
+                const taskItem = document.createElement('div');
+                taskItem.classList.add('task-item');
+                taskItem.textContent = taskText;
+
+                // Add the highlight class
+                taskItem.classList.add('highlight');
+
+                // Append the new item to the correct task list
+                taskLists[index].appendChild(taskItem);
+
+                // Clear the input field
+                input.value = '';
+            }
+        });
+    });
+
+    // Action for the "Remove" button
+    removeButton.addEventListener('click', () => {
+        // Select all elements that have the 'highlight' class
+        const highlightedTasks = document.querySelectorAll('.task-item.highlight');
+        
+        // Loop through the selected elements and remove them from the DOM
+        highlightedTasks.forEach(task => {
+            task.remove();
+        });
+    });
+});
+</script>
+</body>
+</html>
